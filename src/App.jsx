@@ -3,6 +3,7 @@ import './App.css'
 import empresas from './assets/empresas.json'
 import Select from 'react-select';
 import  Line  from './grafico';
+import Barra from './graficoVolume';
 
 function App() {
   const [acao, setAcao] = useState('');
@@ -69,7 +70,12 @@ function App() {
         </div>
       </div>
         <div className='grafico'>
-        {loading ? <p>Carregando dados...</p> : <Line dados={parametro} />}
+        {loading ? <p>Carregando dados...</p> : 
+        <div className='graficos-line-bar'>
+          <Line dados={parametro} />,
+          <Barra dados={parametro} />
+        </div>
+        }
         </div>
       </div>
     </>
